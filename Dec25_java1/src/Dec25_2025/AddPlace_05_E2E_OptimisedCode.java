@@ -50,7 +50,7 @@ public class AddPlace_05_E2E_OptimisedCode {
 		given().log().all().
 		param("key", "qaclick123").
 		header("Content-Type","application/json").
-		body(payload_update_place.updateplace(place_id, newAddress))
+		body(payload_update_place.updateplace(place_id, newAddress)) //moved the body to another method in another class
 		.when().put("/maps/api/place/update/json")
 		.then().log().all().statusCode(200).body("msg", equalTo("Address successfully updated"));
 		
