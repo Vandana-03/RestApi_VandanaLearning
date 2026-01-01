@@ -4,7 +4,7 @@
   <artifactId>Dec25_java1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
-    <sourceDirectory>src</sourceDirectory>
+    <sourceDirectory>src</sourceDirectory> 
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -28,7 +28,7 @@
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>7.11.0</version>
-    <scope>test</scope>
+    
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
