@@ -11,6 +11,7 @@ import files.payload_AddPlace;
 import files.payload_update_place;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+//import jdk.internal.org.jline.terminal.TerminalBuilder.SystemOutput;
 
 public class AddPlace_05_E2E_OptimisedCode {
 	public static void main(String[] args) {
@@ -77,6 +78,8 @@ public class AddPlace_05_E2E_OptimisedCode {
 		 
 		
 		Assert.assertEquals(Actual_Address, newAddress);
+		System.out.println("Actual address is matching with expected address");
+		
 		
 		
 	}
