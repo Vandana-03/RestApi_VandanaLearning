@@ -4,21 +4,21 @@ import io.restassured.path.json.JsonPath;
 
 import static io.restassured.RestAssured.*;
 
-import java.io.File;
-
 public class Jira_Createbug_attachscreenshot {
 	
-	public static void main(String[] args)
+	public static void main(String[] arggs)
 	{
 		RestAssured.baseURI="https://aprateek040.atlassian.net";
-		//CREATE A BUG IN JIRA
-		String create_bug_response=given().log().all().
+		
+		String create_bug_response=
+		
+				given().log().all().
 					header("Content-Type","application/json").
 					header("Authorization","Basic YXByYXRlZWswNDBAZ21haWwuY29tOkFUQVRUM3hGZkdGMENhelpOZk1qMGhhMko0VmQtSHZWclRSNGFyU0hBNVBscUpVdXJReU9mWUxGMGxCaUY0NjQweERyMnFkaVc3TjVBTmxRT2Jrb0E2ajkwOFd6UTRPSzdzRG55bk92MmVqNmhDUDV5Mko3aEpEQUVSQW5Vbm5tZnl1enZwaUZfWjFOMDlhT1hjWU5YbDJkR1FVbU9lNUx3LWl1VjBxOEJDRTVtQlhYTGdjLXN2az01NjRCRTZCMA==").
 					body("{\r\n"
 							+ "  \"fields\": {\r\n"
 							+ "    \"project\": { \"key\": \"AT\" },\r\n"
-							+ "    \"summary\": \"new bug created3\",\r\n"
+							+ "    \"summary\": \"hello this is not working in api\",\r\n"
 							+ "    \"description\": {\r\n"
 							+ "      \"type\": \"doc\",\r\n"
 							+ "      \"version\": 1,\r\n"
@@ -41,7 +41,7 @@ public class Jira_Createbug_attachscreenshot {
 				.when().post("rest/api/3/issue")
 				.then().log().all().
 					assertThat().statusCode(201).
-					extract().response().asString();
+					extract().response().toString();
 			System.out.println("create_bug_response= " + create_bug_response);
 			
 			
@@ -49,17 +49,7 @@ public class Jira_Createbug_attachscreenshot {
 			String bugid=js.getString("id");
 			System.out.println("bugid =" + bugid);
 			
-		//ADD SCREENSHOT TO THE BUG
-		//TO ADD A IMAGE ATTACHMENT WE ARE USING DIFF METHOD
-		// We will be passing the bugid variable on the post url
-			
-			given().log().all().
-				header("Authorization","Basic YXByYXRlZWswNDBAZ21haWwuY29tOkFUQVRUM3hGZkdGMENhelpOZk1qMGhhMko0VmQtSHZWclRSNGFyU0hBNVBscUpVdXJReU9mWUxGMGxCaUY0NjQweERyMnFkaVc3TjVBTmxRT2Jrb0E2ajkwOFd6UTRPSzdzRG55bk92MmVqNmhDUDV5Mko3aEpEQUVSQW5Vbm5tZnl1enZwaUZfWjFOMDlhT1hjWU5YbDJkR1FVbU9lNUx3LWl1VjBxOEJDRTVtQlhYTGdjLXN2az01NjRCRTZCMA==").
-				header("X-Atlassian-Token","no-check").multiPart("file",new File("C:\\Users\\Hp\\git\\RestApi_VandanaLearning\\Dec25_java1\\src\\files\\attachment1.png"))
-				
-			.when().post("rest/api/3/issue/"+bugid+"/attachments")
-			.then().assertThat().statusCode(200).log().all();
-			
+		
 		
 		
 	}
