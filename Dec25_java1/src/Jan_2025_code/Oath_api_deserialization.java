@@ -1,10 +1,11 @@
 package Jan_2025_code;
 import static io.restassured.RestAssured.*;
 
+import Serialization_deserialization_POJO_classes.Get_course_details;
 import io.restassured.path.json.JsonPath;
 
 
-public class Oath_api_1 {
+public class Oath_api_deserialization {
 
 	public static void main(String[] args) {
 		///Authorization server setup
@@ -21,10 +22,15 @@ public class Oath_api_1 {
 		System.out.println("Access token=" + access_token);
 		
 		//GetCourseDetails API
-		String outh_GetCourseDetails=given().queryParam("access_token", access_token).
+		Get_course_details gc=given().queryParam("access_token", access_token).
 		when().get("https://rahulshettyacademy.com/oauthapi/getCourseDetails").
-		then().log().all().extract().response().asString();
-		System.out.print("outh_GetCourseDetails" + outh_GetCourseDetails);
+		then().log().all().statusCode(401).extract().response().as(Get_course_details.class);
+		
+		System.out.println(gc.getLinkedIn());
+		System.out.println(gc.getInstructor());
+		
+		
+		
 		
 
 	}

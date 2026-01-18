@@ -1,14 +1,14 @@
 package Serialization_deserialization_POJO_classes;
 
 public class Webautomation {
-	 private String course_title;
+	 private String courseTitle;
 	 private String price;
-	  
-  public String getCourse_title() {
-		return course_title;
+	 
+	 public String getCourseTitle() {
+		return courseTitle;
 	}
-	public void setCourse_title(String course_title) {
-		this.course_title = course_title;
+	public void setCourseTitle(String courseTitle) {
+		this.courseTitle = courseTitle;
 	}
 	public String getPrice() {
 		return price;
@@ -16,6 +16,8 @@ public class Webautomation {
 	public void setPrice(String price) {
 		this.price = price;
 	}
+
+	  
  
   
 	
