@@ -40,7 +40,7 @@ public class Oath_api_deserialization {
 		
 		System.out.println(gc.getCourses().getApi().get(1).getPrice());
 		
-		// in order to get the price we cant rely on the indexing because index can change over time
+		// in order to get the price we can't rely on the indexing because index can change over time
 		//So we need to take all the list elements and then search for the course title and get the price
 		
 		List<Api> apicourses = gc.getCourses().getApi();

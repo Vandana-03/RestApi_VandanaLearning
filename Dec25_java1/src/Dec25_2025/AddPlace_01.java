@@ -32,6 +32,8 @@ public class AddPlace_01 {
 				+ "").when().post("maps/api/place/add/json")
 					.then().log().all().assertThat().statusCode(200);
 		
+		
+		
 	}
 
 }
