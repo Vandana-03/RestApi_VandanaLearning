@@ -39,11 +39,7 @@ RestAssured.baseURI="https://rahulshettyacademy.com";
 								body(ap).
 								
 						when().post("maps/api/place/add/json").
-						then().log().all().extract().response().asString();
-		
-		
-		
-		
+						then().log().all().statusCode(200).extract().response().asString();		
 	}
 
 }
