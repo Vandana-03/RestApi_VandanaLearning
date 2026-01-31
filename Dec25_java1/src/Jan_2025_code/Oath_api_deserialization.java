@@ -83,12 +83,6 @@ public class Oath_api_deserialization {
 		}
 
 		Assert.assertEquals(a, expected);
-		
-		
-		
-		
-		
-
 	}
 
 }
